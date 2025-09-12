@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Don Moos - Cervejaria e Delivery</title>
 
-  <!-- Fonte elegante e artesanal-->
+  <!-- Fonte elegante e artesanal -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
@@ -267,6 +267,21 @@
         font-size: 36px;
       }
     }
+    @media (max-width: 768px) {
+      .hero {
+        padding: 0 5px; /* remove possíveis espaços sobrando */
+      }
+
+      .hero-logo {
+        max-width: 180px;
+        width: 70%;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+        margin-top: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -376,4 +391,3 @@
 
   setInterval(nextImage, 3000); // troca a cada 3 segundos
 </script>
-
