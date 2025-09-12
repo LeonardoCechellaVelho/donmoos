@@ -22,43 +22,90 @@
     header {
       background: #3a2a21;
       color: #f5f1e6;
-      padding: 20px 20px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
+      padding: 20px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
+
     header h1 {
       margin: 0;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 40px;
-      font-family: 'Cormorant Garamond', serif;
-      color: #d2a679;
-    }
-    nav {
-      margin-left: auto;
-      display: flex;
-      gap: 15px;
-      padding-right: 25px; /* margem direita para alinhar melhor */
-    }
-    nav a {
-      font-weight: 500;
-      font-size: 24px;
-      transition: color 0.3s;
-      font-family: 'Cormorant Garamond', serif;
-      color: #d2a679;
-    }
-    nav a:hover {
       color: #d2a679;
     }
 
-    /* Hero Section */
+    /* Navbar */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding-right: 30px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 15px;
+    }
+
+    .nav-links li a {
+      color: #d2a679;
+      font-family: 'Cormorant Garamond', serif;
+      text-decoration: none;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #f5f1e6;
+    }
+
+    /* Hambúrguer */
+    .hamburger {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      user-select: none;
+      padding-right: 50px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        flex-direction: column;
+        background: #3a2a21;
+        width: 200px;
+        display: none;
+        padding: 10px 0;
+        padding-right: 50px;
+        border-radius: 0 0 10px 10px;
+      }
+      .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      .hamburger {
+        display: block;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+    }
+
+
     .hero {
       width: 100%;
-      height: 400px; /* altura fixa para o carrossel */
+      height: 500px; /* altura maior do carousel */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -67,7 +114,7 @@
       position: relative;
       color: #fff;
       overflow: hidden;
-      background-color: #3a2a21; /* fallback se imagens não carregarem */
+      background-color: #3a2a21;
     }
 
     .hero-logo {
@@ -104,12 +151,20 @@
       opacity: 1;
     }
 
-    /* Texto sobreposto */
-    .hero h2 {
+    /* Texto sobreposto com fundo semi-transparente */
+    .hero-text-overlay {
+      position: relative;
+      z-index: 2;
+      background: rgba(58, 42, 33, 0.6); /* quadrado fosco */
+      padding: 15px 30px;
+      border-radius: 10px;
+    }
+
+    .hero-text-overlay h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 50px;
-      z-index: 2;
       line-height: 1.3;
+      margin: 0;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
 
@@ -219,10 +274,15 @@
 <header>
   <h1>Don Moos</h1>
   <nav>
-    <a href="#historia">História</a>
-    <a href="#premios">Premiações</a>
-    <a href="#produtos">Produtos</a>
-    <a href="#contato">Contato</a>
+    <div class="hamburger" id="hamburger">
+      &#9776; <!-- ícone hambúrguer -->
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#historia">História</a></li>
+      <li><a href="#premios">Premiações</a></li>
+      <li><a href="#produtos">Produtos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
   </nav>
 </header>
 
@@ -235,7 +295,9 @@
     <img src="foto3.jpg" class="carousel-img" alt="Foto 3">
   </div>
 
-  <h2>Don Moos<br>Cervejaria e Delivery</h2>
+  <div class="hero-text-overlay">
+    <h2>Don Moos<br>Cervejaria e Delivery</h2>
+  </div>
 </section>
 
 <section id="historia">
@@ -297,6 +359,12 @@
 
 </body>
 <script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
   const images = document.querySelectorAll('.carousel-img');
   let current = 0;
 
