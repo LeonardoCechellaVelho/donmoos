@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Don Moos - Cerveja Artesanal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f1e6;
+      color: #2c2c2c;
+    }
+    header {
+      background: #1c1c1c;
+      color: #f5f1e6;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #d2a679;
+    }
+    nav a {
+      color: #f5f1e6;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #d2a679;
+    }
+    .hero {
+      background: url('donmoos-cerveja.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      color: #fff;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero h2 {
+      font-size: 50px;
+      z-index: 1;
+    }
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #4a2c2a;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .historia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+    .premios, .produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    img, video {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      max-height: 200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      object-fit: cover;
+      margin: 0 auto;
+      display: block;
+    }
+    .card {
+      background: #fffaf2;
+      border: 1px solid #e0d6c3;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    #contato form {
+      max-width: 500px;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #fffaf2;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #e0d6c3;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    #contato input, #contato textarea, #contato button {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    #contato button {
+      background: #4a2c2a;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+    }
+    #contato button:hover {
+      background: #2c1a18;
+    }
+    footer {
+      background: #1c1c1c;
+      color: #f5f1e6;
+      text-align: center;
+      padding: 20px;
+    }
+    footer a { color: #d2a679; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Don Moos</h1>
+    <nav>
+      <a href="#historia">História</a>
+      <a href="#premios">Premiações</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Don Moos - Cerveja Artesanal</h2>
+  </section>
+
+  <section id="historia">
+    <h2>Nossa História</h2>
+    <div class="historia-grid">
+      <div>
+        <img src="producao.jpg" alt="Produção artesanal">
+        <p>O processo artesanal da Don Moos começa com a seleção dos melhores ingredientes, garantindo qualidade desde o início.</p>
+      </div>
+      <div>
+        <video controls>
+          <source src="preparacao.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos.
+        </video>
+        <p>Durante a preparação, cada etapa é acompanhada de perto para manter a tradição e o sabor únicos.</p>
+      </div>
+      <div>
+        <img src="cerveja-tabua.jpg" alt="Cerveja na tábua">
+        <p>O resultado final é uma cerveja encorpada, servida com orgulho e tradição em cada gole.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="premios">
+    <h2>Premiações</h2>
+    <div class="premios">
+      <div class="card">
+        <img src="premio1.jpg" alt="Prêmio 1">
+        <h3>Melhor IPA 2023</h3>
+        <p>Reconhecimento internacional na categoria India Pale Ale.</p>
+      </div>
+      <div class="card">
+        <img src="premio2.jpg" alt="Prêmio 2">
+        <h3>Medalha de Ouro 2022</h3>
+        <p>Destaque na Feira Nacional de Cervejas Artesanais.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="produtos">
+    <h2>Nossas Cervejas</h2>
+    <div class="produtos">
+      <div class="card">
+        <img src="ipa.jpg" alt="IPA">
+        <h3>Don Moos IPA</h3>
+        <p>Notas cítricas, amargor marcante e frescor irresistível.</p>
+      </div>
+      <div class="card">
+        <img src="stout.jpg" alt="Stout">
+        <h3>Don Moos Stout</h3>
+        <p>Encanto de maltes torrados, café e chocolate.</p>
+      </div>
+      <div class="card">
+        <img src="pilsen.jpg" alt="Pilsen">
+        <h3>Don Moos Pilsen</h3>
+        <p>Refrescante, leve e com amargor equilibrado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p style="text-align:center;">Telefone: <a href="tel:+554899999999">(48) 99999-9999</a></p>
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome">
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Don Moos - Cerveja Artesanal</p>
+  </footer>
+</body>
+</html>
