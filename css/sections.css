@@ -1,0 +1,66 @@
+/* SECTIONS */
+section {
+    padding: 60px 20px 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    color: #c9a66b; /* dourado suave */
+    margin-bottom: 40px;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Ringbearer';
+}
+
+h2 img {
+    height: 30px;
+    padding-right: 9px;
+    filter: invert(48%) sepia(40%) saturate(600%) hue-rotate(10deg) brightness(0.8) contrast(0.8);
+}
+
+p {
+    line-height: 1.8;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #f5f5f5; /* branco suave */
+}
+
+/* História */
+.historia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.historia-grid img,
+.historia-grid video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 0 4px 10px rgba(201, 166, 107, 0.3);
+    display: block;
+}
+
+.section-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px 0;
+    gap: 10px; /* espaço entre linhas e ícone */
+}
+
+.section-separator .line {
+    flex: 0 0 80px; /* comprimento fixo da linha */
+    height: 1.5px;
+    background-color: rgba(201, 166, 107, 0.5); /* dourado suave */
+    border-radius: 5px; /* cantos arredondados */
+}
+
+.section-separator img {
+    width: 40px;
+    height: auto;
+    filter: invert(48%) sepia(64%) saturate(600%) hue-rotate(10deg) brightness(0.6) contrast(0.6);
+}

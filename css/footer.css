@@ -1,0 +1,12 @@
+footer {
+    background: #0d0d0d;
+    color: #c9a66b; /* dourado suave */
+    text-align: center;
+    padding: 25px;
+    font-family: 'Ringbearer';
+}
+
+footer a {
+    color: #b2403c; /* vermelho suave */
+    text-decoration: none;
+}
