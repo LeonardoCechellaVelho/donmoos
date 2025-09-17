@@ -340,10 +340,19 @@
 
     /* RESPONSIVIDADE */
 
-    @media (max-width: 830px) {
+    @media (max-width: 930px) {
       .hero {
         margin-top: 120px;
+        width: 130%; /* aumenta a largura além da tela */
+        margin-left: -15%; /* centraliza a imagem */
+        height: 400px; /* ajuste a altura conforme preferir */
         /* remove o espaçamento extra */
+      }
+
+      .hero img.hero-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
 
@@ -376,8 +385,15 @@
       }
 
       .hero {
-        margin-top: 180px;
-        padding: 0;
+        width: 130%; /* aumenta a largura além da tela */
+        margin-left: -15%; /* centraliza a imagem */
+        height: 500px; /* ajuste a altura conforme preferir */
+      }
+
+      .hero img.hero-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .instagram-grid {
