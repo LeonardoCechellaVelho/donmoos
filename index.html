@@ -31,6 +31,7 @@
       z-index: 0;
     }
 
+    /* Fundo padrão (mobile): logo repetida */
     body::before {
       content: "";
       position: fixed;
@@ -43,7 +44,6 @@
       background-size: 360px 480px;
       /* largura x altura da logo */
       background-position: center;
-      /* centraliza o padrão */
       opacity: 0.05;
       z-index: -1;
       pointer-events: none;
@@ -363,6 +363,30 @@
     .contato-info a:hover {
       color: #b2403c;
       /* vermelho suave */
+    }
+
+    /* Fundo desktop: logo única em diagonal */
+    @media (min-width: 769px) {
+      body::before {
+        background: none;
+        /* remove padrão */
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 1200px;
+        height: 1200px;
+        background: url('logo.png') no-repeat center;
+        background-size: contain;
+        opacity: 0.05;
+        /* deixa suave */
+        transform: translate(-50%, -50%) rotate(-15deg);
+        z-index: -1;
+        pointer-events: none;
+      }
     }
 
     /* FOOTER */
