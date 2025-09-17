@@ -12,9 +12,7 @@
     rel="stylesheet">
 
   <style>
-    /* ---------------------------
-RESET & GLOBAL
----------------------------- */
+    /* RESET & GLOBAL */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
@@ -29,9 +27,7 @@ RESET & GLOBAL
       color: inherit;
     }
 
-    /* ---------------------------
-HEADER & NAV
----------------------------- */
+    /* HEADER & NAV */
     header {
       position: fixed;
       top: 0;
@@ -105,9 +101,7 @@ HEADER & NAV
     }
 
 
-    /* ---------------------------
-SECTIONS
----------------------------- */
+    /* SECTIONS */
     section {
       padding: 100px 20px 60px 20px;
       max-width: 1000px;
@@ -258,12 +252,12 @@ SECTIONS
     }
 
     .section-separator .line {
-      flex: 0 0 50px;
+      flex: 0 0 80px;
       /* comprimento fixo da linha */
-      height: 2px;
+      height: 1.5px;
       background-color: rgba(201, 166, 107, 0.5);
       /* dourado suave */
-      border-radius: 1px;
+      border-radius: 5px;
       /* cantos arredondados */
     }
 
@@ -273,16 +267,37 @@ SECTIONS
       filter: invert(48%) sepia(64%) saturate(600%) hue-rotate(10deg) brightness(0.6) contrast(0.6);
     }
 
-    /* ---------------------------
-CONTATO
----------------------------- */
+    /* CONTATO */
+    .contato-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 50px;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .contato-text {
+      text-align: right;
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 16px;
+      line-height: 2.5;
+    }
+
+    .contato-text div {
+      border-bottom: 1px solid rgba(245, 245, 245, 0.3);
+      /* linha fina */
+      padding-bottom: 4px;
+      margin-bottom: 6px;
+    }
+
     .contato-info {
-      max-width: 400px;
-      margin: 10px auto;
-      text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 10px;
+      max-width: 300px;
+      text-align: left;
     }
 
     .contato-info img {
@@ -304,9 +319,7 @@ CONTATO
       /* vermelho suave */
     }
 
-    /* ---------------------------
-FOOTER
----------------------------- */
+    /* FOOTER */
     footer {
       background: #0d0d0d;
       color: #c9a66b;
@@ -322,9 +335,7 @@ FOOTER
       text-decoration: none;
     }
 
-    /* ---------------------------
-RESPONSIVIDADE
----------------------------- */
+    /* RESPONSIVIDADE */
 
     @media (max-width: 830px) {
       .hero {
@@ -493,11 +504,18 @@ RESPONSIVIDADE
 
   <section id="contato">
     <h2>Contato</h2>
-    <div class="contato-info">
-      <p><img src="phone-icon.png" alt="Telefone" /> <a href="tel:+5548999148909">(48) 99914-8909</a></p>
-      <p><img src="email-icon.webp" alt="E-mail" /> <a href="mailto:donmoos@live.com">donmoos@live.com</a></p>
-      <p><img src="whatsapp-icon.png" alt="WhatsApp" /> <a href="https://wa.me/5548999148909" target="_blank">Chamar no
-          WhatsApp</a></p>
+    <div class="contato-container">
+      <div class="contato-text">
+        <div>Escolha a sua Cerveja preferida</div>
+        <div>Barris de 30 ou 50 Litros</div>
+        <div>Kit completo: Chopeira e Copos</div>
+        <div>Entregas em Criciúma e região</div>
+      </div>
+      <div class="contato-info">
+        <p><img src="phone-icon.png" alt="Telefone" /> <a href="tel:+5548999148909">(48) 99914-8909</a></p>
+        <p><img src="email-icon.webp" alt="E-mail" /> <a href="mailto:donmoos@live.com">donmoos@live.com</a></p>
+        <p><img src="whatsapp-icon.png" alt="WhatsApp" /> <a href="https://wa.me/5548999148909" target="_blank">Clique aqui para fazer um pedido</a></p>
+      </div>
     </div>
   </section>
 
