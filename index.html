@@ -14,6 +14,12 @@
 
   <style>
     /* RESET & GLOBAL */
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       margin: 0;
       font-family: 'Ringbearer';
@@ -24,7 +30,7 @@
       position: relative;
       z-index: 0;
     }
-    
+
     body::before {
       content: "";
       position: fixed;
@@ -74,6 +80,7 @@
       border-image: linear-gradient(to right, #b38b2a, #e5c97c);
       border-image-slice: 1;
     }
+
 
     .header-logo {
       padding-top: 30px;
@@ -379,9 +386,12 @@
     @media (max-width: 830px) {
       .hero {
         margin-top: 120px;
-        width: 130%; /* aumenta a largura além da tela */
-        margin-left: -15%; /* centraliza a imagem */
-        height: 400px; /* ajuste a altura conforme preferir */
+        width: 130%;
+        /* aumenta a largura além da tela */
+        margin-left: -15%;
+        /* centraliza a imagem */
+        height: 400px;
+        /* ajuste a altura conforme preferir */
         /* remove o espaçamento extra */
       }
 
@@ -394,7 +404,7 @@
 
     @media (max-width: 768px) {
       body {
-        padding-left: 35px;
+        padding: 0;
       }
 
       header {
@@ -425,15 +435,23 @@
       }
 
       .hero {
-        width: 130%; /* aumenta a largura além da tela */
-        margin-left: -15%; /* centraliza a imagem */
-        height: 500px; /* ajuste a altura conforme preferir */
+        width: 100vw;
+        /* largura exata da tela */
+        height: 500px;
+        /* altura ajustável */
+        overflow: hidden;
+        /* corta excesso */
+        margin: 0;
+        /* remove margens que quebram layout */
       }
 
       .hero img.hero-bg {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        padding-top: 270px;
+        /* preenche toda a área */
+        display: block;
       }
 
       .instagram-grid {
@@ -482,13 +500,20 @@
       perder o romantismo da jornada cervejeira.</p>
 
     <h3>Porque o nome Don Moos?</h3>
-    <p>Dom quixote foi um fidalgo que viveu lá para as bandas da Espanha. Fidalgo para nós que conhecemos a sua história, porque ele era um grande cavaleiro. 
-      Ele lutou contra gigantes, dragões e monstros, derrotando todos. Quando imagino um mundo de dom quixote, influenciado pela capa verde musgo do livro e pela 
-      psicodélica imaginação de dom, o mundo que me vem a cabeça é musgo e musgo em alemão se escreve moos. Porque a história de dom quixote foi escrita por cervantes 
-      que era espanhol, mas a história de don moos foi escrita por um alemão que produzia cerveja e o seu nome era cervejantes. Coincidência ou não eles viveram na 
-      mesma época. O livro escrito por cervantes todo mundo leu ou já ouviu falar, porém, o livro escrito por cervejantes sobre Don Moos ninguém conhece. 
-      Mas, dizem que recentemente foram encontrados escritos deixados por cervejantes, e neles algumas receitas de cervejas, que segundo consta era a bebida preferida 
-      de Don Moos agora podem ser degustadas por pessoas comuns, como eu e você, pois uma cervejaria batizada com o nome do cavaleiro alemão está produzindo as cervejas 
+    <p>Dom quixote foi um fidalgo que viveu lá para as bandas da Espanha. Fidalgo para nós que conhecemos a sua
+      história, porque ele era um grande cavaleiro.
+      Ele lutou contra gigantes, dragões e monstros, derrotando todos. Quando imagino um mundo de dom quixote,
+      influenciado pela capa verde musgo do livro e pela
+      psicodélica imaginação de dom, o mundo que me vem a cabeça é musgo e musgo em alemão se escreve moos. Porque a
+      história de dom quixote foi escrita por cervantes
+      que era espanhol, mas a história de don moos foi escrita por um alemão que produzia cerveja e o seu nome era
+      cervejantes. Coincidência ou não eles viveram na
+      mesma época. O livro escrito por cervantes todo mundo leu ou já ouviu falar, porém, o livro escrito por
+      cervejantes sobre Don Moos ninguém conhece.
+      Mas, dizem que recentemente foram encontrados escritos deixados por cervejantes, e neles algumas receitas de
+      cervejas, que segundo consta era a bebida preferida
+      de Don Moos agora podem ser degustadas por pessoas comuns, como eu e você, pois uma cervejaria batizada com o nome
+      do cavaleiro alemão está produzindo as cervejas
       consumidas por Don Moos.</p>
 
     <div class="historia-grid">
@@ -589,6 +614,3 @@
   </footer>
 
 </body>
-
-
-
