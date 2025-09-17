@@ -1,173 +1,113 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Don Moos - Cervejaria e Delivery</title>
 
   <!-- Fonte elegante e artesanal -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
 
   <style>
-    /* Estilo global */
+    /* ---------------------------
+RESET & GLOBAL
+---------------------------- */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #f5f1e6;
-      color: #3a2a21;
+      background-color: #0d0d0d;
+      /* preto suave */
+      color: #f5f5f5;
+      /* branco suave */
     }
 
-    a { text-decoration: none; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
+    /* ---------------------------
+HEADER & NAV
+---------------------------- */
     header {
-      background: #3a2a21;
-      color: #f5f1e6;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       position: fixed;
-      width: 100%;
       top: 0;
       left: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    }
-
-    header h1 {
-      margin: 0;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
-      color: #d2a679;
-    }
-
-    /* Navbar */
-    nav {
+      width: 100%;
+      background: #1a1a1a;
+      /* cor da navbar */
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 15px;
-      padding-right: 30px;
+      height: 120px;
+      /* altura do header */
+      z-index: 1000;
+      padding: 0;
     }
 
-    .nav-links {
+    .header-logo {
+      padding-top: 30px;
+      max-height: 180px;
+      width: auto;
+      margin: 0 60px;
+    }
+
+    .nav-left,
+    .nav-right {
       display: flex;
-      list-style: none;
-      gap: 15px;
+      gap: 40px;
+      align-items: center;
+      font-family: 'Cormorant Garamond', serif;
     }
 
-    .nav-links li a {
-      color: #d2a679;
-      font-family: 'Cormorant Garamond', serif;
-      text-decoration: none;
-      font-size: 24px;
+    .nav-left {
+      justify-content: flex-end;
+    }
+
+    .nav-right {
+      justify-content: flex-start;
+    }
+
+    .nav-left a,
+    .nav-right a {
+      color: #c9a66b;
+      /* dourado suave */
+      font-size: 22px;
       transition: color 0.3s;
     }
 
-    .nav-links li a:hover {
-      color: #f5f1e6;
+    .nav-left a:hover,
+    .nav-right a:hover {
+      color: #b2403c;
+      /* vermelho suave */
     }
-
-    /* Hambúrguer */
-    .hamburger {
-      display: none;
-      font-size: 30px;
-      cursor: pointer;
-      user-select: none;
-      padding-right: 50px;
-    }
-
-    /* Responsividade */
-    @media (max-width: 768px) {
-      .nav-links {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        flex-direction: column;
-        background: #3a2a21;
-        width: 200px;
-        display: none;
-        padding: 10px 0;
-        padding-right: 50px;
-        border-radius: 0 0 10px 10px;
-      }
-      .nav-links li {
-        margin: 10px 0;
-        text-align: center;
-      }
-      .hamburger {
-        display: block;
-      }
-      .nav-links.active {
-        display: flex;
-      }
-    }
-
 
     .hero {
       width: 100%;
-      height: 500px; /* altura maior do carousel */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      color: #fff;
+      height: 500px;
       overflow: hidden;
-      background-color: #3a2a21;
+      position: relative;
+      margin-top: 100px;
+      /* empurra a hero para baixo da navbar */
     }
 
-    .hero-logo {
-      width: 200px;
+    .hero img.hero-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
       height: auto;
-      z-index: 2;
-      position: relative;
-      margin-bottom: 20px;
-    }
-
-    /* Carousel */
-    .carousel {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%; /* ocupa toda a hero */
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .carousel-img {
-      width: 100%;
-      height: 100%;
+      transform: translate(-50%, -50%);
       object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
     }
 
-    .carousel-img.active {
-      opacity: 1;
-    }
 
-    /* Texto sobreposto com fundo semi-transparente */
-    .hero-text-overlay {
-      position: relative;
-      z-index: 2;
-      background: rgba(58, 42, 33, 0.6); /* quadrado fosco */
-      padding: 15px 30px;
-      border-radius: 10px;
-    }
-
-    .hero-text-overlay h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 50px;
-      line-height: 1.3;
-      margin: 0;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-    }
-
+    /* ---------------------------
+SECTIONS
+---------------------------- */
     section {
       padding: 100px 20px 60px 20px;
       max-width: 1000px;
@@ -175,219 +115,394 @@
     }
 
     h2 {
-      color: #d2a679;
+      color: #c9a66b;
+      /* dourado suave */
       margin-bottom: 30px;
       text-align: center;
       font-family: 'Cormorant Garamond', serif;
     }
+
     p {
       line-height: 1.8;
       margin-bottom: 20px;
+      color: #f5f5f5;
+      /* branco suave */
     }
 
-    /* Grid para História */
+    /* História */
     .historia-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
       text-align: center;
     }
+
     .historia-grid img,
     .historia-grid video {
       width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(201, 166, 107, 0.3);
       display: block;
     }
 
-    /* Cards para produtos e prêmios */
-    .premios, .produtos {
+    /* Produtos e Prêmios */
+    .premios,
+    .produtos {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px;
     }
+
     .card {
-      background: #fffaf2;
-      border: 1px solid #e0d6c3;
+      background: #1a1a1a;
+      /* preto suave */
+      border: 1px solid #c9a66b;
+      /* dourado suave */
       padding: 20px;
       border-radius: 12px;
       text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(201, 166, 107, 0.2);
       transition: transform 0.3s, box-shadow 0.3s;
     }
+
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 20px rgba(178, 64, 60, 0.4);
+      /* vermelho suave */
     }
 
-    #contato form {
-      max-width: 500px;
-      margin: 20px auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      background: #fffaf2;
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #e0d6c3;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    #instagram {
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 0 20px 60px 20px;
+      text-align: center;
     }
-    #contato input, #contato textarea, #contato button {
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 15px;
+
+    #instagram h2 {
+      color: #c9a66b;
+      /* dourado suave */
+      margin-bottom: 30px;
+      font-family: 'Cormorant Garamond', serif;
     }
-    #contato button {
-      background: #4a2c2a;
-      color: #fff;
-      cursor: pointer;
+
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .instagram-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(201, 166, 107, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .instagram-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(178, 64, 60, 0.4);
+    }
+
+    .instagram-button a {
+      display: inline-block;
+      background-color: #b2403c;
+      /* vermelho suave */
+      color: #f5f5f5;
+      padding: 12px 25px;
+      border-radius: 8px;
       font-weight: bold;
-      border: none;
+      text-decoration: none;
       transition: background 0.3s;
     }
-    #contato button:hover {
-      background: #2c1a18;
+
+    .instagram-button a:hover {
+      background-color: #c9a66b;
+      /* dourado suave */
+      color: #0d0d0d;
     }
 
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10000;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    .section-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 60px 0;
+      gap: 10px;
+      /* espaço entre linhas e ícone */
+    }
+
+    .section-separator .line {
+      flex: 0 0 50px;
+      /* comprimento fixo da linha */
+      height: 2px;
+      background-color: rgba(201, 166, 107, 0.5);
+      /* dourado suave */
+      border-radius: 1px;
+      /* cantos arredondados */
+    }
+
+    .section-separator img {
+      width: 40px;
+      height: auto;
+      filter: invert(48%) sepia(64%) saturate(600%) hue-rotate(10deg) brightness(0.6) contrast(0.6);
+    }
+
+    /* ---------------------------
+CONTATO
+---------------------------- */
+    .contato-info {
+      max-width: 400px;
+      margin: 10px auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .contato-info img {
+      width: 24px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .contato-info a {
+      color: #c9a66b;
+      /* dourado suave */
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contato-info a:hover {
+      color: #b2403c;
+      /* vermelho suave */
+    }
+
+    /* ---------------------------
+FOOTER
+---------------------------- */
     footer {
-      background: #3a2a21;
-      color: #f5f1e6;
+      background: #0d0d0d;
+      color: #c9a66b;
+      /* dourado suave */
       text-align: center;
       padding: 25px;
       font-family: 'Cormorant Garamond', serif;
     }
-    footer a { color: #d2a679; text-decoration: none; }
 
-    /* Responsividade */
-    @media(max-width: 600px) {
-      .hero h2 {
-        font-size: 36px;
+    footer a {
+      color: #b2403c;
+      /* vermelho suave */
+      text-decoration: none;
+    }
+
+    /* ---------------------------
+RESPONSIVIDADE
+---------------------------- */
+
+    @media (max-width: 830px) {
+      .hero {
+        margin-top: 120px;
+        /* remove o espaçamento extra */
       }
     }
+
     @media (max-width: 768px) {
+      header {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 10px;
+        height: auto;
+      }
+
+      .header-logo {
+        margin: 0px;
+        padding: 0px;
+        order: -1;
+      }
+
+      .nav-left,
+      .nav-right {
+        width: 100%;
+        justify-content: center;
+        gap: 30px;
+        margin: 5px 0;
+      }
+
+      .nav-left a,
+      .nav-right a {
+        display: inline-block;
+        text-align: center;
+      }
+
       .hero {
-        padding: 0 5px; /* remove possíveis espaços sobrando */
+        margin-top: 180px;
+        padding: 0;
       }
 
-      .hero-logo {
-        max-width: 180px;
-        width: 70%;
-      }
-
-      .hero h2 {
-        font-size: 28px;
-        margin-top: 10px;
+      .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
       }
     }
   </style>
+
+
+
+
 </head>
+
 <body>
-
-<header>
-  <h1>Don Moos</h1>
-  <nav>
-    <div class="hamburger" id="hamburger">
-      &#9776; <!-- ícone hambúrguer -->
+  <a href="https://wa.me/5548999148909" target="_blank" class="whatsapp-float">
+    <img src="whatsapp-icon.png" alt="WhatsApp" />
+  </a>
+  <header>
+    <div class="nav-left">
+      <a href="#historia">História</a>
+      <a href="#premios">Premiações</a>
     </div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#historia">História</a></li>
-      <li><a href="#premios">Premiações</a></li>
-      <li><a href="#produtos">Produtos</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
-</header>
 
-<section class="hero">
-  <img src="logo.png" alt="Don Moos Logo" class="hero-logo">
+    <img src="logo.png" alt="Don Moos Logo" class="header-logo">
 
-  <div class="carousel">
-    <img src="foto1.jpg" class="carousel-img active" alt="Foto 1">
-    <img src="foto2.jpg" class="carousel-img" alt="Foto 2">
-    <img src="foto3.jpg" class="carousel-img" alt="Foto 3">
-  </div>
-
-  <div class="hero-text-overlay">
-    <h2>Don Moos<br>Cervejaria e Delivery</h2>
-  </div>
-</section>
-
-<section id="historia">
-  <h2>Nossa História</h2>
-  <p>• Fundada em Criciúma, por um pai e seu filho, ambos com um sonho de propagar a cultura da cerveja artesanal pela região carbonífera. Seu nome nasceu da união entre a paixão pela cerveja artesanal e o espírito aventureiro inspirado em Dom Quixote.</p>
-  <p>• Cada rótulo carrega uma história, uma ousadia e um toque único, reflexo de quem acredita que até os erros podem se tornar ouro, como nossa premiada Barley Wine.</p>
-  <p>• De uma panela caseira à conquista de medalhas, seguimos como cavaleiros modernos: buscando a perfeição sem perder o romantismo da jornada cervejeira.</p>
-
-  <h3>Porque o nome Don Moos?</h3>
-  <p>• Dom Quixote foi um fidalgo que viveu na Espanha. Ele lutou contra gigantes, dragões e monstros. A palavra "Moos" vem de musgo em alemão, inspirado pela capa verde musgo do livro de Dom Quixote. A história de Don Moos foi registrada por um cervejeiro alemão chamado Cervejantes. Recentemente, suas receitas foram resgatadas e agora podem ser degustadas por todos na cervejaria Don Moos.</p>
-
-  <div class="historia-grid">
-    <div><img src="producao.jpg" alt="Produção artesanal"></div>
-    <div><video autoplay muted loop playsinline><source src="preparacao.mp4" type="video/mp4">Seu navegador não suporta vídeos.</video></div>
-    <div><img src="cerveja-tabua.jpg" alt="Cerveja na tábua"></div>
-  </div>
-</section>
-
-<section id="premios">
-  <h2>Premiações Nacionais</h2>
-  <div class="premios">
-    <div class="card">
-      <h3>Adambier - Barley Wine (Safra junho 2023)</h3>
-      <p>Cerveja envelhecida em garrafa de espumante. Considerada a segunda melhor do país pelo Concurso Brasileiro de Cerveja de 2024, em Blumenau. Corpo alto, aromas de caramelo, frutas secas e toffee. Pode ser armazenada até 10 anos.</p>
-      <p>Garrafa de 375ml - Valor unitário: R$ 30,00 - Estoque limitado</p>
+    <div class="nav-right">
+      <a href="#produtos">Produtos</a>
+      <a href="#contato">Contato</a>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="produtos">
-  <h2>Cervejas Especiais</h2>
-  <div class="produtos">
-    <div class="card">
-      <h3>Chopp Pilsen</h3>
-      <p>Barril 30 litros - R$ 330,00</p>
-      <p>Barril 50 litros - R$ 550,00</p>
-      <p>Preço por litro R$ 11,00. Frete grátis em Criciúma, outras localidades consultar.</p>
-      <p>Validade de proposta: 31/10/25</p>
+  <div class="hero">
+    <img src="hero.png" alt="Hero" class="hero-bg">
+  </div>
+
+
+  <section id="historia">
+    <h2>Nossa História</h2>
+    <p>• Fundada em Criciúma, por um pai e seu filho, ambos com um sonho de propagar a cultura da cerveja artesanal pela
+      região carbonífera. Seu nome nasceu da união entre a paixão pela cerveja artesanal e o espírito aventureiro
+      inspirado em Dom Quixote.</p>
+    <p>• Cada rótulo carrega uma história, uma ousadia e um toque único, reflexo de quem acredita que até os erros podem
+      se tornar ouro, como nossa premiada Barley Wine.</p>
+    <p>• De uma panela caseira à conquista de medalhas, seguimos como cavaleiros modernos: buscando a perfeição sem
+      perder o romantismo da jornada cervejeira.</p>
+
+    <h3>Porque o nome Don Moos?</h3>
+    <p>• Dom Quixote foi um fidalgo que viveu na Espanha. Ele lutou contra gigantes, dragões e monstros. A palavra
+      "Moos" vem de musgo em alemão, inspirado pela capa verde musgo do livro de Dom Quixote. A história de Don Moos foi
+      registrada por um cervejeiro alemão chamado Cervejantes. Recentemente, suas receitas foram resgatadas e agora
+      podem ser degustadas por todos na cervejaria Don Moos.</p>
+
+    <div class="historia-grid">
+      <div><img src="producao.jpg" alt="Produção artesanal"></div>
+      <div><video autoplay muted loop playsinline>
+          <source src="preparacao.mp4" type="video/mp4">Seu navegador não suporta vídeos.
+        </video></div>
+      <div><img src="cerveja-tabua.jpg" alt="Cerveja na tábua"></div>
     </div>
+  </section>
+
+  <div class="section-separator">
+    <div class="line"></div>
+    <img src="cevada-icon.webp" alt="Cevada">
+    <div class="line"></div>
   </div>
-</section>
 
-<section id="contato">
-  <h2>Contato</h2>
-  <p style="text-align:center;">Telefone: <a href="tel:+554899999999">(48) 99999-9999</a></p>
-  <p style="text-align:center;">@donmoos</p>
-  <form>
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome">
-    <label for="mensagem">Mensagem:</label>
-    <textarea id="mensagem" name="mensagem"></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-</section>
+  <section id="premios">
+    <h2>Premiações Nacionais</h2>
+    <div class="premios">
+      <div class="card">
+        <h3>Adambier - Barley Wine (Safra junho 2023)</h3>
+        <p>Cerveja envelhecida em garrafa de espumante. Considerada a segunda melhor do país pelo Concurso Brasileiro de
+          Cerveja de 2024, em Blumenau. Corpo alto, aromas de caramelo, frutas secas e toffee. Pode ser armazenada até
+          10 anos.</p>
+        <p>Garrafa de 375ml - Valor unitário: R$ 30,00 - Estoque limitado</p>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <p>&copy; 2025 Don Moos - Cervejaria e Delivery</p>
-</footer>
+  <div class="section-separator">
+    <div class="line"></div>
+    <img src="cevada-icon.webp" alt="Cevada">
+    <div class="line"></div>
+  </div>
+
+  <section id="produtos">
+    <h2>Cervejas Especiais</h2>
+    <div class="produtos">
+      <div class="card">
+        <h3>Chopp Pilsen</h3>
+        <p>Barril 30 litros - R$ 330,00</p>
+        <p>Barril 50 litros - R$ 550,00</p>
+        <p>Preço por litro R$ 11,00. Frete grátis em Criciúma, outras localidades consultar.</p>
+        <p>Validade de proposta: 31/10/25</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-separator">
+    <div class="line"></div>
+    <img src="cevada-icon.webp" alt="Cevada">
+    <div class="line"></div>
+  </div>
+
+  <section id="instagram">
+    <h2>Instagram</h2>
+    <div class="instagram-grid">
+      <div><img src="foto1.jpg" alt="Instagram 1"></div>
+      <div><img src="foto2.jpg" alt="Instagram 2"></div>
+      <div><img src="foto3.jpg" alt="Instagram 3"></div>
+      <div><img src="foto2.jpg" alt="Instagram 4"></div>
+      <div><img src="foto3.jpg" alt="Instagram 5"></div>
+      <div><img src="foto1.jpg" alt="Instagram 6"></div>
+    </div>
+    <div class="instagram-button">
+      <a href="https://www.instagram.com/donmoos" target="_blank">Ver mais</a>
+    </div>
+  </section>
+
+  <div class="section-separator">
+    <div class="line"></div>
+    <img src="cevada-icon.webp" alt="Cevada">
+    <div class="line"></div>
+  </div>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <div class="contato-info">
+      <p><img src="phone-icon.png" alt="Telefone" /> <a href="tel:+5548999148909">(48) 99914-8909</a></p>
+      <p><img src="email-icon.webp" alt="E-mail" /> <a href="mailto:donmoos@live.com">donmoos@live.com</a></p>
+      <p><img src="whatsapp-icon.png" alt="WhatsApp" /> <a href="https://wa.me/5548999148909" target="_blank">Chamar no
+          WhatsApp</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Don Moos - Cervejaria e Delivery</p>
+  </footer>
 
 </body>
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-  const images = document.querySelectorAll('.carousel-img');
-  let current = 0;
-
-  function nextImage() {
-    images[current].classList.remove('active');
-    current = (current + 1) % images.length;
-    images[current].classList.add('active');
-  }
-
-  setInterval(nextImage, 3000); // troca a cada 3 segundos
-</script>
