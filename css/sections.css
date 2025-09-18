@@ -26,24 +26,6 @@ p {
     color: #f5f5f5; /* branco suave */
 }
 
-/* História */
-.historia-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    text-align: center;
-}
-
-.historia-grid img,
-.historia-grid video {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 3px;
-    box-shadow: 0 4px 10px rgba(201, 166, 107, 0.3);
-    display: block;
-}
-
 .section-separator {
     display: flex;
     align-items: center;

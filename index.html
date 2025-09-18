@@ -33,6 +33,8 @@
   <link rel="stylesheet" href="css/beer-glass.css">
   <!-- Cards -->
   <link rel="stylesheet" href="css/cards.css">
+  <!-- Historia -->
+  <link rel="stylesheet" href="css/historia.css">
 </head>
 
 
@@ -67,40 +69,42 @@
   </div>
 
   <section id="historia">
-    <h2>Nossa História</h2>
-    <p> Fundada em Criciúma, por um pai e seu filho, ambos com um sonho de propagar a cultura da cerveja artesanal pela
-      região carbonífera. Seu nome nasceu da união entre a paixão pela cerveja artesanal e o espírito aventureiro
-      inspirado em Dom Quixote.</p>
-    <p> Cada rótulo carrega uma história, uma ousadia e um toque único, reflexo de quem acredita que até os erros podem
-      se tornar ouro, como nossa premiada Barley Wine.</p>
-    <p> De uma panela caseira à conquista de medalhas, seguimos como cavaleiros modernos: buscando a perfeição sem
-      perder o romantismo da jornada cervejeira.</p>
 
-    <h3>Porque o nome Don Moos?</h3>
-    <p>Dom quixote foi um fidalgo que viveu lá para as bandas da Espanha. Fidalgo para nós que conhecemos a sua
-      história, porque ele era um grande cavaleiro.
-      Ele lutou contra gigantes, dragões e monstros, derrotando todos. Quando imagino um mundo de dom quixote,
-      influenciado pela capa verde musgo do livro e pela
-      psicodélica imaginação de dom, o mundo que me vem a cabeça é musgo e musgo em alemão se escreve moos. Porque a
-      história de dom quixote foi escrita por cervantes
-      que era espanhol, mas a história de don moos foi escrita por um alemão que produzia cerveja e o seu nome era
-      cervejantes. Coincidência ou não eles viveram na
-      mesma época. O livro escrito por cervantes todo mundo leu ou já ouviu falar, porém, o livro escrito por
-      cervejantes sobre Don Moos ninguém conhece.
-      Mas, dizem que recentemente foram encontrados escritos deixados por cervejantes, e neles algumas receitas de
-      cervejas, que segundo consta era a bebida preferida
-      de Don Moos agora podem ser degustadas por pessoas comuns, como eu e você, pois uma cervejaria batizada com o nome
-      do cavaleiro alemão está produzindo as cervejas
-      consumidas por Don Moos.</p>
-
-    <div class="historia-grid">
-      <div><img src="assets/producao.jpg" alt="Produção artesanal"></div>
-      <div><video autoplay muted loop playsinline>
-          <source src="assets/preparacao.mp4" type="video/mp4">Seu navegador não suporta vídeos.
-        </video></div>
-      <div><img src="assets/cerveja-tabua.jpg" alt="Cerveja na tábua"></div>
+    <!-- Bloco 1 -->
+    <div class="historia-block">
+      <div class="historia-img">
+        <img src="assets/producao.jpg" alt="Produção artesanal">
+      </div>
+      <div class="historia-text">
+        <h3>Nossa História</h2>
+          <p>Fundada em Criciúma, por um pai e seu filho, ambos com um sonho de propagar a cultura da cerveja artesanal
+            pela
+            região carbonífera. Seu nome nasceu da união entre a paixão pela cerveja artesanal e o espírito aventureiro
+            inspirado em Dom Quixote.</p>
+          <p>Cada rótulo carrega uma história, uma ousadia e um toque único, reflexo de quem acredita que até os erros
+            podem
+            se tornar ouro, como nossa premiada Barley Wine.</p>
+          <p>De uma panela caseira à conquista de medalhas, seguimos como cavaleiros modernos: buscando a perfeição sem
+            perder o romantismo da jornada cervejeira.</p>
+      </div>
     </div>
+
+    <!-- Bloco 2 -->
+    <div class="historia-block reverse">
+      <div class="historia-img image-right">
+        <img src="assets/cerveja-tabua.jpg" alt="Cerveja na tábua">
+      </div>
+      <div class="historia-text text-right">
+        <h3>Porque o nome Don Moos?</h3>
+        <p>Dom Quixote foi um grande cavaleiro espanhol que inspirou a história de Don Moos, escrita por um cervejeiro
+          alemão chamado Cervejantes. “Moos” significa musgo em alemão, referência à capa verde musgo do livro.
+          Recentemente, foram encontrados escritos com receitas de cervejas que eram favoritas de Don Moos, e hoje uma
+          cervejaria com seu nome produz essas bebidas para todos apreciarem. </p>
+      </div>
+    </div>
+
   </section>
+
 
   <div class="section-separator">
     <div class="line"></div>
@@ -116,16 +120,37 @@
 
   <section id="premios">
     <h2>Premiações Nacionais</h2>
-    <div class="premios">
-      <div class="card">
-        <h3>Adambier - Barley Wine (Safra junho 2023)</h3>
-        <p>Cerveja envelhecida em garrafa de espumante. Considerada a segunda melhor do país pelo Concurso Brasileiro de
-          Cerveja de 2024, em Blumenau. Corpo alto, aromas de caramelo, frutas secas e toffee. Pode ser armazenada até
-          10 anos.</p>
-        <p>Garrafa de 375ml - Valor unitário: R$ 30,00 - Estoque limitado</p>
+    <div class="premios-grid">
+      <!-- Card 1 -->
+      <div class="card-premio">
+        <img src="assets/foto3.jpg" alt="Strong Ale – Barley Wine" class="premio-img">
+        <h3 class="premio-title">Strong Ale – Barley Wine</h3>
+        <p class="premio-description">
+          Cerveja envelhecida em garrafa de espumante. Corpo alto, aromas de caramelo, frutas secas e toffee. Pode ser
+          armazenada até 10 anos.
+        </p>
+        <div class="medalhas">
+          <img src="assets/prata.png" alt="Prata - Concurso Brasileiro de Cerveja 2024" class="medalha">
+        </div>
+        <p class="premio-nota">Considerada a segunda melhor do país pelo Concurso Brasileiro de Cerveja de 2024, em
+          Blumenau.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card-premio">
+        <img src="assets/foto3.jpg" alt="Adambier" class="premio-img">
+        <h3 class="premio-title">Adambier</h3>
+        <p class="premio-description">
+          Considerada a segunda melhor do país pelo Concurso Brasileiro de Cerveja de 2025, em Blumenau.
+        </p>
+        <div class="medalhas">
+          <img src="assets/prata.png" alt="Bronze - Brazil Beer Cup 2025" class="medalha">
+          <img src="assets/prata.png" alt="Bronze - III Copa Sul-Americana 2025" class="medalha">
+        </div>
       </div>
     </div>
   </section>
+
 
   <div class="section-separator">
     <div class="line"></div>
